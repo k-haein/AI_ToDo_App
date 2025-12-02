@@ -5,9 +5,45 @@
   --color-slate-900: #0f172a;
 }
 
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
 body {
-  background-color: var(--color-slate-50);
-  color: var(--color-slate-900);
+  @apply bg-white text-slate-900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+html.dark body {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d2d2d; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777; 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
